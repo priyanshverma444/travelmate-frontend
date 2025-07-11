@@ -1,7 +1,15 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./pages/Register";
 
 function App() {
-  return <h1 className="text-2xl font-bold text-blue-500">TravelMate</h1>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
