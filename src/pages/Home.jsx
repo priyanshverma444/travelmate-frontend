@@ -6,12 +6,12 @@ const Home = () => {
   const { user } = useAuth();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-white px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-2xl text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-blue-600 mb-4">
           Welcome to TravelMate ✈️
         </h1>
-        <p className="text-gray-700 text-lg mb-8">
+        <p className="text-gray-700 text-lg mb-8 font-bold">
           Plan smarter. Travel better. Track your trips and check live weather forecasts
           for your destinations — all in one place.
         </p>
