@@ -109,86 +109,88 @@ const TripForm = () => {
   };
 
   return (
-  <div className="min-h-screen flex justify-center items-start bg-gray-100 px-4 py-10">
-    <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
-      {/* Left: Trip Form */}
-      <div className="w-full md:w-1/2 bg-white shadow-xl rounded-lg p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
-          {isEditing ? "Edit Trip" : "Plan a New Trip"}
-        </h2>
+    <div className="min-h-screen flex justify-center items-start bg-gray-100 px-4 py-10">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
+        {/* Left: Trip Form */}
+        <div className="w-full md:w-1/2 bg-white shadow-xl rounded-lg p-6">
+          <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
+            {isEditing ? "Edit Trip" : "Plan a New Trip"}
+          </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="destination"
-            placeholder="Destination"
-            value={formData.destination}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="destination"
+              placeholder="Destination"
+              value={formData.destination}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-          <div className="flex gap-4">
-            <div className="flex-1">
-              <label className="block text-sm text-gray-600 mb-1">Start Date</label>
-              <input
-                type="date"
-                name="startDate"
-                value={formData.startDate}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 px-3 py-2 rounded"
-              />
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <label className="block text-sm text-gray-600 mb-1">
+                  Start Date
+                </label>
+                <input
+                  type="date"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 px-3 py-2 rounded"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm text-gray-600 mb-1">
+                  End Date
+                </label>
+                <input
+                  type="date"
+                  name="endDate"
+                  value={formData.endDate}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 px-3 py-2 rounded"
+                />
+              </div>
             </div>
-            <div className="flex-1">
-              <label className="block text-sm text-gray-600 mb-1">End Date</label>
-              <input
-                type="date"
-                name="endDate"
-                value={formData.endDate}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 px-3 py-2 rounded"
-              />
-            </div>
-          </div>
 
-          <textarea
-            name="notes"
-            placeholder="Notes (optional)"
-            value={formData.notes}
-            onChange={handleChange}
-            rows="4"
-            className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+            <textarea
+              name="notes"
+              placeholder="Notes (optional)"
+              value={formData.notes}
+              onChange={handleChange}
+              rows="4"
+              className="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-          <button
-            type="submit"
-            disabled={loading}
-            className={`w-full py-2 text-white font-semibold rounded ${
-              loading
-                ? "bg-blue-300 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
-            }`}
-          >
-            {loading
-              ? isEditing
-                ? "Updating..."
-                : "Creating..."
-              : isEditing
-              ? "Update Trip"
-              : "Create Trip"}
-          </button>
-        </form>
-      </div>
-      {isEditing && formData.destination && (
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full py-2 text-white font-semibold rounded ${
+                loading
+                  ? "bg-blue-300 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              {loading
+                ? isEditing
+                  ? "Updating..."
+                  : "Creating..."
+                : isEditing
+                ? "Update Trip"
+                : "Create Trip"}
+            </button>
+          </form>
+        </div>
         <div className="w-full md:w-1/2 bg-white shadow-md rounded-lg p-6">
           <WeatherForecast city={formData.destination} />
         </div>
-      )}
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default TripForm;
