@@ -52,11 +52,22 @@ const WeatherForecast = ({ city }) => {
   }, [debouncedCity]);
 
   return (
-    <div className="mt-8">
-      <h3 className="text-lg font-semibold text-gray-800 mb-3">7-Day Forecast</h3>
+    <div>
+      <h3 className="text-xl font-semibold text-gray-800 mb-5">
+        7-Day Forecast
+      </h3>
 
       {loading ? (
-        <p className="text-gray-600">Loading weather...</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-2">
+          {Array(7)
+            .fill(0)
+            .map((_, i) => (
+              <div
+                key={i}
+                className="bg-blue-100 p-5 rounded shadow animate-pulse h-40"
+              ></div>
+            ))}
+        </div>
       ) : error ? (
         <p className="text-red-500">{error}</p>
       ) : (
