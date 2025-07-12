@@ -109,10 +109,10 @@ const TripForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-start bg-gray-100 px-4 py-10">
+    <div className="min-h-screen flex justify-center items-start px-4 py-10">
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
         {/* Left: Trip Form */}
-        <div className="w-full md:w-1/2 bg-white shadow-xl rounded-lg p-6">
+        <div className="w-full md:w-1/2 shadow-xl rounded-lg py-10 p-6 bg-gray-100">
           <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
             {isEditing ? "Edit Trip" : "Plan a New Trip"}
           </h2>
@@ -185,7 +185,7 @@ const TripForm = () => {
             </button>
           </form>
         </div>
-        <div className="w-full md:w-1/2 bg-white shadow-md rounded-lg p-6">
+        <div className="w-full md:w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
           <WeatherForecast city={formData.destination} />
         </div>
       </div>

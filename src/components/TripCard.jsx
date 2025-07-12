@@ -55,8 +55,8 @@ const TripCard = ({ trip, onDelete }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-5 flex flex-col justify-between">
-      <div>
+    <div className="shadow-md rounded-lg p-5 flex flex-col justify-between bg-gray-100">
+      <div className="text-center">
         <h3 className="text-2xl font-bold text-blue-700">{trip.destination}</h3>
         <p className="text-gray-600 text-md">
           {new Date(trip.startDate).toLocaleDateString()} –{" "}

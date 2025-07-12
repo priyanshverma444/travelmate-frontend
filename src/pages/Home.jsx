@@ -33,7 +33,7 @@ const Home = () => {
             </button>
             <button
               onClick={() => navigate("/login")}
-              className="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded"
+              className="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded border border-blue-500"
             >
               Login
             </button>

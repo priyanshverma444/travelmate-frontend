@@ -35,7 +35,7 @@ const TripList = () => {
   }, [user]);
 
   return (
-    <div className="min-h-screen px-6 py-10 bg-gray-100">
+    <div className="min-h-screen px-6 py-10">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">My Trips</h1>
 
