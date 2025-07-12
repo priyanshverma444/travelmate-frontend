@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import axios from "axios";
+import WeatherForecast from "../components/WeatherForeCast";
 
 const TripForm = () => {
   const { user } = useAuth();
@@ -108,8 +109,10 @@ const TripForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-lg bg-gray-100 rounded-lg shadow-xl p-6">
+  <div className="min-h-screen flex justify-center items-start bg-gray-100 px-4 py-10">
+    <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
+      {/* Left: Trip Form */}
+      <div className="w-full md:w-1/2 bg-white shadow-xl rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
           {isEditing ? "Edit Trip" : "Plan a New Trip"}
         </h2>
@@ -178,8 +181,14 @@ const TripForm = () => {
           </button>
         </form>
       </div>
+      {isEditing && formData.destination && (
+        <div className="w-full md:w-1/2 bg-white shadow-md rounded-lg p-6">
+          <WeatherForecast city={formData.destination} />
+        </div>
+      )}
     </div>
-  );
+  </div>
+);
 };
 
 export default TripForm;
