@@ -12,6 +12,7 @@ import TripForm from "./pages/TripForm";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import { useAuth } from "./context/AuthContext";
+import NotFound from "./pages/NotFound";
 
 // Wrapper for redirection on logout
 function AppRoutes() {
@@ -33,6 +34,7 @@ function AppRoutes() {
         <Route path="/trips" element={<TripList />} />
         <Route path="/trips/new" element={<TripForm />} />
         <Route path="/trips/edit/:id" element={<TripForm />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
