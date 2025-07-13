@@ -25,11 +25,16 @@ export const AuthProvider = ({ children }) => {
     scheduleAutoLogout(userData.token);
   };
 
-  const logout = () => {
+  // for auto logout
+  const logout = (auto = false) => {
     setUser(null);
     setToken(null);
     localStorage.clear();
-    toast.info("Session expired. Please login again.");
+    clearTimeout(logoutTimer.current);
+
+    if (auto) {
+      toast.info("Session expired. Please login again.");
+    }
   };
 
   const scheduleAutoLogout = (token) => {
@@ -39,13 +44,13 @@ export const AuthProvider = ({ children }) => {
       const timeLeft = expiresAt - Date.now();
 
       if (timeLeft <= 0) {
-        logout();
+        logout(true); // token expired
       } else {
         clearTimeout(logoutTimer.current);
-        logoutTimer.current = setTimeout(logout, timeLeft);
+        logoutTimer.current = setTimeout(() => logout(true), timeLeft);
       }
     } catch (err) {
-      logout(); // invalid or malformed token
+      logout(true); // invalid token
     }
   };
 
