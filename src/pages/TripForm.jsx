@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import axios from "axios";
-import WeatherForecast from "../components/WeatherForeCast";
+import WeatherForecast from "../components/WeatherForecast";
 
 const TripForm = () => {
   const { user } = useAuth();
