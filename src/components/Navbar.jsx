@@ -53,7 +53,7 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600 transition text-sm font-semibold"
+              className="text-red-600 underline hover:text-red-700 font-semibold transition text-sm"
             >
               Logout
             </button>
@@ -77,62 +77,64 @@ const Navbar = () => {
 
         {/* Hamburger Toggle Button */}
         <button
-          className="lg:hidden text-blue-700 focus:outline-none"
+          className="lg:hidden text-blue-700 focus:outline-none transition-transform duration-300 ease-in-out"
           onClick={toggleMenu}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden px-4 pb-4 flex flex-col gap-3 bg-blue/80 backdrop-blur-md">
-          {user && (
-            <>
-              <Link
-                to="/trips"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-blue-600 font-medium"
-              >
-                My Trips
-              </Link>
-              <Link
-                to="/trips/new"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-blue-600 font-medium"
-              >
-                Plan Trip
-              </Link>
-            </>
-          )}
-
-          {user ? (
-            <button
-              onClick={handleLogout}
-              className="text-red-600 font-semibold text-left"
+      {/* Mobile Menu with smooth transition */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        } px-4 flex flex-col gap-3 bg-blue/80 backdrop-blur-md`}
+      >
+        {user && (
+          <>
+            <Link
+              to="/trips"
+              onClick={closeMenu}
+              className="text-gray-700 hover:text-blue-600 font-medium py-1"
             >
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                onClick={closeMenu}
-                className="text-blue-600 hover:underline font-medium"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                onClick={closeMenu}
-                className="text-blue-600 hover:underline font-medium"
-              >
-                Register
-              </Link>
-            </>
-          )}
-        </div>
-      )}
+              My Trips
+            </Link>
+            <Link
+              to="/trips/new"
+              onClick={closeMenu}
+              className="text-gray-700 hover:text-blue-600 font-medium py-1"
+            >
+              Plan Trip
+            </Link>
+          </>
+        )}
+
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="text-red-600 underline hover:text-red-700 font-semibold text-left py-1"
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              onClick={closeMenu}
+              className="text-blue-600 hover:underline font-medium py-1"
+            >
+              Login
+            </Link>
+            <Link
+              to="/register"
+              onClick={closeMenu}
+              className="text-blue-600 hover:underline font-medium py-1"
+            >
+              Register
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 };
